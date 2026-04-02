@@ -69,7 +69,7 @@ export default function DashboardPage() {
       {/* Welcome heading */}
       <div className="animate-fade-in">
         <h1 className="text-2xl lg:text-3xl font-semibold text-foreground">
-          Welcome back, Dr. Smith
+          Welcome back
         </h1>
         <p className="text-foreground-muted mt-1">
           Your clinical AI assistant is ready to help

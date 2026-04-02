@@ -79,12 +79,12 @@ export default function HomePage() {
                 </Button>
               </Link>
               <Link href="/login">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   size="lg"
                   className="border-white/[0.12] bg-white/[0.04] hover:bg-white/[0.08] text-foreground"
                 >
-                  Try Demo
+                  Sign In
                 </Button>
               </Link>
             </div>
@@ -113,7 +113,7 @@ export default function HomePage() {
 
         {/* Footer */}
         <footer className="p-4 lg:p-6 text-center text-sm text-foreground-subtle">
-          <p>© 2024 ShifaMind. Clinical AI Platform.</p>
+          <p>© 2026 ShifaMind. Clinical AI Platform.</p>
         </footer>
       </div>
     </div>

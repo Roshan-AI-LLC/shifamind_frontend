@@ -1,32 +1,27 @@
 "use client"
 
-import { User, Mail, Building, Stethoscope, Shield, Activity, MessageSquare, Star, Zap, Key, Bell } from "lucide-react"
+import { Mail, Building, Stethoscope, Shield, Activity, MessageSquare, Star, Key, Bell } from "lucide-react"
 import { GlassCard } from "@/components/ui/glass-card"
 import { StatsTrend } from "@/components/ui/stats-trend"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 
-// Mock user data
+// Placeholder — replace with real user data from auth context
 const user = {
-  name: "Dr. Sarah Smith",
-  email: "sarah.smith@hospital.com",
-  initials: "SS",
-  specialty: "Internal Medicine",
-  institution: "City General Hospital",
-  role: "Physician",
-  licenseNumber: "MD-2847362",
-  memberSince: "January 2024",
-  lastLogin: "Today at 2:45 PM",
+  name: "—",
+  email: "—",
+  initials: "?",
+  specialty: "—",
+  institution: "—",
+  role: "—",
+  licenseNumber: "—",
+  memberSince: "—",
+  lastLogin: "—",
   stats: {
-    predictions: 24,
-    chatSessions: 8,
-    reviews: 12,
+    predictions: 0,
+    chatSessions: 0,
+    reviews: 0,
   },
-  subscriptionTier: "Pro",
-  features: [
-    { name: "Unlimited Predictions", icon: Zap },
-    { name: "Advanced Analytics", icon: Activity },
-    { name: "Priority Support", icon: Zap },
-  ]
+  subscriptionTier: "—",
 }
 
 export default function ProfilePage() {
@@ -44,9 +39,6 @@ export default function ProfilePage() {
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-semibold text-foreground">{user.name}</h2>
-            <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-gold/20 text-gold border border-gold/30">
-              Demo
-            </span>
           </div>
           <div className="flex items-center gap-2 mt-1">
             <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary border border-primary/30">
@@ -118,7 +110,7 @@ export default function ProfilePage() {
           </span>
         </div>
         <p className="text-sm text-foreground-muted">
-          You have access to all Pro features. Renews on February 1, 2025.
+          Manage your subscription and billing details.
         </p>
         <button className="px-4 py-2 rounded-lg bg-primary/20 border border-primary/30 text-sm text-primary hover:bg-primary/30 transition-colors">
           Manage Subscription

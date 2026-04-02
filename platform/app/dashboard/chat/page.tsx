@@ -20,29 +20,8 @@ const suggestedQuestions = [
   "What additional tests would you recommend?",
 ]
 
-const mockMessages: Message[] = [
-  {
-    id: "1",
-    content: "I've analyzed a clinical note for a 58-year-old male with elevated fasting glucose, family history of diabetes, and symptoms of polydipsia and polyuria. The top diagnosis is Type 2 Diabetes Mellitus with 96% confidence.",
-    isUser: false,
-    timestamp: "2:45 PM",
-  },
-  {
-    id: "2",
-    content: "What clinical findings support this diagnosis?",
-    isUser: true,
-    timestamp: "2:46 PM",
-  },
-  {
-    id: "3",
-    content: "Several key findings support the Type 2 Diabetes diagnosis:\n\n1. **Elevated Fasting Glucose** (confidence: 92%) - At 142 mg/dL, this exceeds the diagnostic threshold of 126 mg/dL\n\n2. **Increased Thirst (Polydipsia)** (confidence: 88%) - A classic symptom often accompanying hyperglycemia\n\n3. **Frequent Urination (Polyuria)** (confidence: 85%) - Occurs when glucose spills into urine\n\n4. **Family History** - Strong genetic predisposition to Type 2 DM\n\n5. **Age & BMI** - 58 years old with BMI 28 are typical risk factors\n\nThese findings collectively indicate impaired glucose metabolism characteristic of Type 2 Diabetes.",
-    isUser: false,
-    timestamp: "2:47 PM",
-  },
-]
-
 export default function ChatPage() {
-  const [messages, setMessages] = useState<Message[]>(mockMessages)
+  const [messages, setMessages] = useState<Message[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [showContext, setShowContext] = useState(true)
   const [showSidebar, setShowSidebar] = useState(false)
@@ -97,9 +76,6 @@ export default function ChatPage() {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-gold/20 text-gold border border-gold/30">
-              Demo
-            </span>
             <button
               onClick={() => setShowSidebar(!showSidebar)}
               className="sm:hidden p-2 hover:bg-white/[0.08] rounded-lg transition-colors"
