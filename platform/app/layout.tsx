@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import { Outfit, JetBrains_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const outfit = Outfit({ 
@@ -18,7 +17,6 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'ShifaMind - Clinical AI Diagnosis Platform',
   description: 'AI-powered clinical decision support using BioClinicalBERT for ICD-10 diagnosis prediction',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
@@ -52,7 +50,6 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={`${outfit.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         {children}
-        <Analytics />
       </body>
     </html>
   )

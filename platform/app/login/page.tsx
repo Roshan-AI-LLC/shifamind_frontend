@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { Brain, Mail, Lock, ArrowRight, Sparkles, ArrowLeft } from "lucide-react"
+import { Brain, Mail, Lock, ArrowRight, ArrowLeft } from "lucide-react"
 import { AmbientBackground } from "@/components/ambient-background"
 import { GlassCard } from "@/components/ui/glass-card"
 import { Button } from "@/components/ui/button"
@@ -35,11 +35,6 @@ export default function LoginPage() {
       // For demo, just redirect to dashboard
       router.push("/dashboard")
     }
-  }
-
-  const handleDemoLogin = () => {
-    setEmail("demo@shifamind.me")
-    setPassword("demo123")
   }
 
   return (
@@ -168,32 +163,9 @@ export default function LoginPage() {
           )}
         </GlassCard>
 
-        {/* Demo credentials card */}
-        <GlassCard padding="sm" className="border-primary/20">
-          <div className="flex items-start gap-3">
-            <div className="shrink-0 w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-primary" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-foreground">Demo Access</p>
-              <p className="text-xs text-foreground-muted mt-0.5">
-                Use demo@shifamind.me / demo123 to explore
-              </p>
-            </div>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleDemoLogin}
-              className="shrink-0 text-primary hover:text-primary hover:bg-primary/10"
-            >
-              Use Demo
-            </Button>
-          </div>
-        </GlassCard>
-
         {/* Back link */}
         <p className="text-center text-sm text-foreground-muted">
-          <Link href="/" className="hover:text-foreground transition-colors inline-flex items-center gap-1">
+          <Link href="https://shifamind.me" className="hover:text-foreground transition-colors inline-flex items-center gap-1">
             <ArrowLeft className="w-3 h-3" />
             Back to main site
           </Link>

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Zap, Clock, MessageSquare } from "lucide-react"
 import { GlassCard } from "@/components/ui/glass-card"
 import { NoteInput } from "@/components/workspace/note-input"
@@ -86,6 +87,7 @@ const mockAttributions = [
 ]
 
 export default function WorkspacePage() {
+  const router = useRouter()
   const [hasAnalyzed, setHasAnalyzed] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [showFeedback, setShowFeedback] = useState(false)
@@ -139,12 +141,9 @@ export default function WorkspacePage() {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-white/[0.06]">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="px-2 py-1 rounded text-xs font-semibold bg-primary/20 text-primary">
-                    Demo
-                  </span>
                   <span className="text-xs text-foreground-muted flex items-center gap-1">
                     <Clock className="w-3 h-3" />
-                    324ms inference
+                    inference complete
                   </span>
                 </div>
                 <h3 className="font-semibold text-foreground">
@@ -169,7 +168,10 @@ export default function WorkspacePage() {
 
               <TabsContent value="diagnoses" className="space-y-3">
                 <PredictionsList predictions={mockPredictions} />
-                <button className="w-full px-4 py-3 rounded-lg bg-white/[0.06] border border-white/[0.08] text-foreground hover:bg-white/[0.1] transition-colors flex items-center justify-center gap-2 mt-4">
+                <button
+                  onClick={() => router.push("/dashboard/chat")}
+                  className="w-full px-4 py-3 rounded-lg bg-white/[0.06] border border-white/[0.08] text-foreground hover:bg-white/[0.1] transition-colors flex items-center justify-center gap-2 mt-4"
+                >
                   <MessageSquare className="w-4 h-4" />
                   Discuss in Chat →
                 </button>

@@ -5,68 +5,14 @@ import { Filter, Download } from "lucide-react"
 import { GlassCard } from "@/components/ui/glass-card"
 import { HistoryCard } from "@/components/ui/history-card"
 
-// Mock prediction history data
-const predictions = [
-  {
-    id: "pred-001",
-    date: "2024-01-15 10:32 AM",
-    diagnosis: "Type 2 Diabetes Mellitus",
-    content: "58-year-old male with persistent elevated fasting glucose levels (142 mg/dL), BMI 28, family history of diabetes. Patient reports increased thirst and frequent urination over past 3 weeks.",
-    codes: [
-      { code: "E11.9", label: "Type 2 diabetes mellitus without complications", confidence: 0.96 },
-      { code: "R06.02", label: "Tachypnea", confidence: 0.72 },
-      { code: "E78.5", label: "Lipidemia, unspecified", confidence: 0.68 },
-    ],
-    userFeedback: "helpful",
-  },
-  {
-    id: "pred-002",
-    date: "2024-01-14 2:15 PM",
-    diagnosis: "Hypertensive Crisis",
-    content: "45-year-old female presenting with severe headache, dizziness, and BP 180/120. No prior history of hypertension. Symptomatic and requires immediate intervention.",
-    codes: [
-      { code: "I10", label: "Essential (primary) hypertension", confidence: 0.88 },
-      { code: "R51.9", label: "Headache, unspecified", confidence: 0.91 },
-      { code: "R25.1", label: "Tremor, unspecified", confidence: 0.54 },
-    ],
-    userFeedback: "helpful",
-  },
-  {
-    id: "pred-003",
-    date: "2024-01-13 9:45 AM",
-    diagnosis: "Acute Bronchitis with Productive Cough",
-    content: "32-year-old male with 5-day history of productive cough with greenish sputum, fever, and chest discomfort. Recent upper respiratory infection. No shortness of breath.",
-    codes: [
-      { code: "J20.9", label: "Acute bronchitis, unspecified", confidence: 0.93 },
-      { code: "R05.9", label: "Fever, unspecified", confidence: 0.79 },
-      { code: "R06.02", label: "Tachypnea", confidence: 0.65 },
-    ],
-  },
-  {
-    id: "pred-004",
-    date: "2024-01-12 11:20 AM",
-    diagnosis: "Gastroesophageal Reflux Disease",
-    content: "52-year-old female with chronic heartburn, regurgitation after meals, and mild dysphagia. Symptoms worse at night. Tried over-the-counter antacids with minimal relief.",
-    codes: [
-      { code: "K21.9", label: "Unspecified esophagitis", confidence: 0.85 },
-      { code: "R12", label: "Heartburn", confidence: 0.94 },
-      { code: "K22.70", label: "Barrett's esophagus without dysplasia", confidence: 0.41 },
-    ],
-    userFeedback: "partial",
-  },
-  {
-    id: "pred-005",
-    date: "2024-01-11 3:00 PM",
-    diagnosis: "Acute Sinusitis",
-    content: "28-year-old male with nasal congestion, facial pain, and purulent nasal discharge. Recent viral URI. No fever or systemic symptoms.",
-    codes: [
-      { code: "J01.90", label: "Unspecified acute sinusitis", confidence: 0.87 },
-      { code: "R06.02", label: "Nasal congestion", confidence: 0.81 },
-      { code: "M79.7", label: "Fibromyalgia", confidence: 0.38 },
-    ],
-    userFeedback: "incorrect",
-  },
-]
+const predictions: {
+  id: string
+  date: string
+  diagnosis: string
+  content: string
+  codes: { code: string; label: string; confidence: number }[]
+  userFeedback?: string
+}[] = []
 
 export default function HistoryPage() {
   const [expandedId, setExpandedId] = useState<string | null>(null)
@@ -136,9 +82,13 @@ export default function HistoryPage() {
           <div className="w-16 h-16 rounded-2xl bg-white/[0.06] flex items-center justify-center">
             <Filter className="w-8 h-8 text-foreground-subtle" />
           </div>
-          <h2 className="text-lg font-medium text-foreground mt-6">No predictions found</h2>
+          <h2 className="text-lg font-medium text-foreground mt-6">
+            {predictions.length === 0 ? "No predictions yet" : "No predictions found"}
+          </h2>
           <p className="text-foreground-muted text-sm mt-1 text-center max-w-sm">
-            Try adjusting your filters to see more results.
+            {predictions.length === 0
+              ? "Head to the Workspace to analyze your first clinical note."
+              : "Try adjusting your filters to see more results."}
           </p>
         </GlassCard>
       )}
